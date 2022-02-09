@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1006069588078",
+    "firebase_url": "https://hongslab-28004.firebaseio.com",
+    "project_id": "hongslab-28004",
+    "storage_bucket": "hongslab-28004.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006069588078:android:1d3c6f4af74fcf962d067f",
+        "android_client_info": {
+          "package_name": "net.hongslab.trotsdchip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006069588078-khjl83c6l32hfbpe9r77s2hv2cqkk2tg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.hongslab.trotsdchip",
+            "certificate_hash": "4953b53cd455924ebead92318b5f72a94568d264"
+          }
+        },
+        {
+          "client_id": "1006069588078-nir414jsvg277s5cj5isunrvr2jafh8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqo1kxX8F8GbTEoWMszrrNk7YuNfHFzRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006069588078-nir414jsvg277s5cj5isunrvr2jafh8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

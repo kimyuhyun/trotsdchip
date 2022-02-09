@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/app_bar"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="#f2f2f2"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <ImageView
+                android:src="@drawable/app_icon"
+                android:layout_marginLeft="20dp"
+                android:scaleType="fitCenter"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+            <TextView
+                android:text="@string/app_name"
+                android:fontFamily="@font/custom"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/btn_search"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_search_light"
+                android:layout_marginRight="20dp"
+                android:scaleType="fitCenter"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/top_bar_shadow"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_navigation_box"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/bottom_bar_shadow"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:background="#f2f2f2"
+            app:itemIconTint="@drawable/bottom_selector"
+            app:itemTextColor="@drawable/bottom_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_navi" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/close_popup"
+        android:visibility="gone"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="#80000000"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:minWidth="260dp"
+            android:minHeight="40dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="스폰서 배너"
+                android:textColor="#f2f2f2"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+<!--            <com.kakao.adfit.ads.ba.BannerAdView-->
+<!--                android:id="@+id/ad_view_exit"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+            <LinearLayout
+                android:id="@+id/ad_exit_container"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:text="돌아가기"
+                    android:textColor="#FFF"
+                    android:textSize="16dp"
+                    android:background="#000"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/btn_exit"
+                    android:layout_marginLeft="1px"
+                    android:text="앱 종료"
+                    android:textColor="#FFF"
+                    android:textSize="16dp"
+                    android:background="#000"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

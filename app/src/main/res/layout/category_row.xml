@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="20dp"
+    android:layout_marginBottom="20dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:layout_width="150dp"
+    android:layout_height="150dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_ct_thumb"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/splash"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tv_ct_name"
+            android:textColor="#FFF"
+            android:background="#90000000"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="US Top50"
+            android:fontFamily="@font/custom"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

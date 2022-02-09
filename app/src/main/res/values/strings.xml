@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">트로트USB/SD칩</string>
+
+    <string name="url">http://music.hongslab.shop/Trot</string>
+
+    <string name="ad_id" translatable="false">ca-app-pub-3533911265472834~3550437747</string>
+    <string name="banner_intro" translatable="false">ca-app-pub-3533911265472834/5929382597</string>
+    <string name="banner_exit" translatable="false">ca-app-pub-3533911265472834/7298111065</string>
+</resources>

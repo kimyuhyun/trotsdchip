@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:background="#EFEFEF"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <LinearLayout
+                android:id="@+id/btn_back"
+                android:gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
+                <ImageView
+                    android:src="@drawable/arrow_left"
+                    android:layout_width="24px"
+                    android:layout_height="40px" />
+            </LinearLayout>
+
+            <TextView
+                android:text="로그인"
+                style="@style/title"
+                android:textColor="#FFF"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+</LinearLayout>
+
+
+
+public class SampleActivity extends AppCompatActivity {
+     private AsyncThread mAsyncThread;
+
+     @BindView(R.id.root)
+     LinearLayout root;
+
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+
+         //팝업창 만들때!!
+         //extends Activity
+         //android:theme="@android:style/Theme.Translucent"
+         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+
+         setContentView(R.layout.activity_room_list);
+         ButterKnife.bind(this);
+
+         //매니페스트에서 세로 고정하면 에러남.. 여기서 해줌
+         try {
+             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         //
+
+         initView(root);
+
+     }
+
+     private void initView(View view) {
+         SetViewScale setvs = new SetViewScale(this);
+
+         if (view instanceof ViewGroup) {
+             ViewGroup group = (ViewGroup) view;
+             for (int i=0; i<group.getChildCount(); i++) {
+                 View childView = group.getChildAt(i);
+                 initView(childView);
+             }
+         } else {
+             if (view.getLayoutParams().width > 0) {
+                 setvs.setViewScale(view, view.getLayoutParams().width, view.getLayoutParams().height);
+             }
+         }
+     }
+
+     @Override
+     public void onBackPressed() {
+         finish();
+         overridePendingTransition(0, 0);
+
+     }
+
+     @OnClick(R.id.btn_back)
+         public void back() {
+             onBackPressed();
+         }
+}
+
+
+public class Main extends Fragment {
+    private Unbinder unbinder;
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+    }
+}
+
+
+mList = new ArrayList<>();
+recycler_view.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+mRecyclerAdapter = new RecyclerAdapter();
+recycler_view.setAdapter(mRecyclerAdapter);
+recycler_view.setItemAnimator(new DefaultItemAnimator());
+
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+    public RecyclerAdapter() {
+
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bld_row, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        holder.bldName.setText(mList.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return mList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.bld_name) TextView bldName;
+
+        public ViewHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
+        }
+
+    }
+}
+
+
+
+
+
+Handler handler = new Handler() {
+    @Override
+    public void handleMessage(Message msg) {
+        try {
+            if (msg != null) {
+
+                if(mAsyncThread.getResult() != null) {
+
+                    JSONArray array = new JSONArray(mAsyncThread.getResult());
+
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject obj = array.getJSONObject(i);
+
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mAsyncThread = null;
+            super.handleMessage(msg);
+        }
+    }
+};
+
+HashMap<String,String> hashMap = new HashMap<>();
+hashMap.put("LAT", "");
+String param = "";
+try {
+    param = URLMaker.hashToUrl(hashMap);
+}catch (Exception e){
+    e.printStackTrace();
+}
+mAsyncThread = new AsyncThread(getActivity(), handler, "/get_hp/?" + param);
+mAsyncThread.execute();
+
+
+Glide.with(getApplicationContext())
+        .load(item.THUMB)
+        .thumbnail(0.1f)
+        .placeholder(R.drawable.profile_circle_back)
+        .error(R.drawable.profile_circle_back)
+        .crossFade()
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .bitmapTransform(new CropCircleTransformation(getApplicationContext()))
+        .into(holder.binding.ivThumb);
+
+
+
+
+
+
+
+
+사진업로드 상세설명
+http://superwony.tistory.com/5
+
